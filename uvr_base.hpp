@@ -1,8 +1,17 @@
-#ifdef UVR_BASE_H
+#ifndef UVR_BASE_H
 #define UVR_BASE_H
+
+#include<vector>
+#include<string>
 
 namespace uvr
 {
+
+struct Matrix4x4d
+{
+public:
+	double data[4][4];
+};
 
 struct dimensions_t
 {
@@ -35,7 +44,7 @@ public:
 	class Map
 	{
 	public:
-		vector<Coord> data;
+		std::vector<Coord> data;
 		dimensions_t size;
 	};
 	
@@ -75,8 +84,6 @@ public:
 const std::vector<std::string>& listAvailableBackends(void* params);
 Backend* constructBackend(const std::string&,void* params);
 
-};
-
-
+}
 
 #endif
