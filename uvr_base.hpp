@@ -13,11 +13,11 @@ public:
 	double data[4][4];
 };
 
-struct dimensions_t
+struct Point2ui
 {
 	unsigned int x;
 	unsigned int y;
-	dimensions_t(unsigned int tx=0,unsigned int ty=0):
+	Point2ui(unsigned int tx=0,unsigned int ty=0):
 		x(tx),y(ty)
 	{}
 };
@@ -25,8 +25,8 @@ struct dimensions_t
 class Viewport
 {
 public:
-	dimensions_t offset;
-	dimensions_t size;
+	Point2ui offset;
+	Point2ui size;
 	Viewport()
 	{}
 	virtual ~Viewport()
@@ -45,7 +45,7 @@ public:
 	{
 	public:
 		std::vector<Coord> data;
-		dimensions_t size;
+		Point2ui size;
 	};
 	
 	virtual Map computeMap(unsigned int width,unsigned int height=0) const;
